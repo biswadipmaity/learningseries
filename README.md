@@ -14,12 +14,13 @@ Do not install the one by Jun Han
 Reference : http://docs.platformio.org/en/latest/ide/vscode.html#installation
 
 ## Sample project setup
-1. Clone the repository from https://github.com/biswadipmaity/learningseries / or
-download and extract the contents to location of your choice.
-![Visual Guide](docs/clone.png)
+1. Clone the repository from https://github.com/biswadipmaity/learningseries / or download and extract the contents to location of your choice.
+
+![Clone snap](docs/clone.png)
 2. In VSCode, navigate to the folder in step 1. and select it in the file chooser dialog. (File>Open
 Folder> Select Folder)
-![Visual Guide](docs/folder.png)
+
+![Folder snap](docs/folder.png)
 3. [Optional Step]
 4.	Compile the project (Ctrl+Alt+B)
 5.	Upload the binary to your device (Ctrl+Alt+U)
