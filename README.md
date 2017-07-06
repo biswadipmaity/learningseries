@@ -11,7 +11,7 @@ DON’T FORGET to **select Add python.exe to Path** feature on the “Customize�
 4. Search for official platformio-ide package (by PlatformIO.org) and install it.
 Do not install the one by Jun Han
 
-[Reference] (http://docs.platformio.org/en/latest/ide/vscode.html#installation "PlatformIO Website")
+[Reference](http://docs.platformio.org/en/latest/ide/vscode.html#installation "PlatformIO Website")
 
 ## Sample project setup
 1. Clone the repository from https://github.com/biswadipmaity/learningseries / or download and extract the contents to location of your choice.  
