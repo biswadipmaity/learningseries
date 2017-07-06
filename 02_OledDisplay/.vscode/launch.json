@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "gdb",
+            "request": "launch",
+            "cwd": "${workspaceRoot}",
+            "name": "PlatformIO Debugger",
+            "target": "d:/w/g/hackathon_session/IoT_Hackathon17/02_OledDisplay/.pioenvs/nodemcuv2/firmware.elf",
+            "gdbpath": "C:/Users/%username%/.platformio/penv/Scripts/piodebuggdb",
+            "autorun": [ "source .pioinit" ]
+        }
+    ]
+}

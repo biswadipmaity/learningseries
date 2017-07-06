@@ -1,11 +1,21 @@
-These are the example codes that we will use during the course of the demo.
-Pre-work* -  Please follow the instructions given in https://github.com/esp8266/Arduino#installing-with-boards-manager.
-Notes :
-1.	Please use the “Windows Installer” and not the zipped version for the drivers to get installed. 
-2.	You can install the latest version of Arduino.
+This repo houses all the examples that we will use for the IoT workshop. You will need VScode IDE along with Platform IO Core(which is a multiplatform build system).
+********   Installation instructions *********
+IDE Setup
 
-The codes are :
-1. LED Blinking 
-2. Connected OLED screen
-3. Connect to Wifi 
-4. Wifi Manager
+1. Please Download the latest Python 2.7 and install it from https://www.python.org/ftp/python/2.7.13/python-2.7.13.msi. 
+DON’T FORGET to select Add python.exe to Path feature on the “Customize” stage, otherwise Python Package Manager pip command will not be available.
+2. Visit https://code.visualstudio.com/ and download VS Code, if you don't have it.
+3. Open VSCode Package Manager
+![Visual Guide](docs/platformio.png)
+4. Search for official platformio-ide package
+5. Install PlatformIO IDE (by PlatformIO.org)
+
+Please refer to this link for a visual setup guide.
+http://docs.platformio.org/en/latest/ide/vscode.html#installation
+***********************************************
+
+*********   Opening Sample projects  **********
+1. Download the repo / Clone
+2. Open the particular project (Ex: 01_Led)
+3. Press Ctrl+Alt+B to compile
+***********************************************
