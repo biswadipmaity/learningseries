@@ -5,7 +5,7 @@
 
 String deviceName = "Robot";
 // WiFi settings
-const char *ssid = "MSFTLAB";
+const char *ssid = "MSFTGUEST";
 
 void setup()
 {
@@ -13,6 +13,9 @@ void setup()
     oled_setup();
     Serial.println("ESP8266 starting in normal mode");
     // Connect to WiFi
+    oled_clear();
+    oled_println("Wifi Connecting..");
+
     WiFi.begin(ssid); //, password);
     while (WiFi.status() != WL_CONNECTED)
     {
@@ -21,6 +24,7 @@ void setup()
     }
     Serial.println("");
     Serial.println("WiFi connected");
+    oled_println("Wifi connected");
     // Print the IP address
     Serial.println(WiFi.localIP());
 }
@@ -44,7 +48,8 @@ void loop()
         {
             String payload = http.getString();
             Serial.println(payload);
-            oled_print(payload);
+            oled_clear();
+            oled_println(payload);
         }
     }
     else
