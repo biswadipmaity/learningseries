@@ -15,18 +15,21 @@ void printMacAddress()
     }
 
     Serial.print(MAC_char);
-
-    oled_print(MAC_char);
+    //oled_println(MAC_char);
 }
 
 void setup()
 {
     Serial.begin(9600);
-
+    Serial.println("Program started");
     oled_setup();
     printMacAddress();
 }
 
 void loop()
 {
+    oled_println("ABC");
+    oled_println("DEF");
+    oled_println("GHI");
+    delay(1000);
 }

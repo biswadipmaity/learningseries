@@ -1,57 +1,42 @@
-/**
- * The MIT License (MIT)
- *
- * Copyright (c) 2016 by Daniel Eichhorn
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- *
- */
+#include <ESP8266WiFi.h> //https://github.com/esp8266/Arduino
 
-// Include the correct display library
-// For a connection via I2C using Wire include
-#include <Wire.h>  // Only needed for Arduino 1.6.5 and earlier
+#include <SPI.h>
+#include <Wire.h>
+#include <Adafruit_SSD1306.h>
+
 #include <oled.h>
-#include "SSD1306.h" // alias for `#include "SSD1306Wire.h"`
 
-// Initialize the OLED display using brzo_i2c
-// D3 -> SDA
-// D5 -> SCL
-// SSD1306Brzo display(0x3c, D3, D5);
-// or
-// SH1106Brzo  display(0x3c, D3, D5);
+Adafruit_SSD1306 display(OLED_MOSI, OLED_CLK, OLED_DC, OLED_RESET, OLED_CS);
 
-// Initialize the OLED display using Wire library
-SSD1306  display(0x3c, OLED_SDA, OLED_SCL);
+void oled_setup()
+{
+  pinMode(OLED_VCC, OUTPUT);
+  digitalWrite(OLED_VCC, HIGH);
 
-void oled_setup() {
-  display.init();
+  // put your setup code here, to run once:
+  Serial.begin(115200);
 
-  display.flipScreenVertically();
-  display.setFont(ArialMT_Plain_10);
+  // by default, we'll generate the high voltage from the 3.3v line internally! (neat!)
+  display.begin(SSD1306_SWITCHCAPVCC, 0x3C); // initialize with the I2C addr 0x3C (for the 64x48)
+  display.display();
+  delay(200);
 
+  // Clear the buffer.
+  display.clearDisplay();
+
+  display.setTextSize(1);
+  display.setTextColor(WHITE);
+  display.setCursor(0, 0);
 }
 
-void oled_print(String str)
-{ 
-    display.clear();
-    display.setFont(ArialMT_Plain_10);
-    display.setTextAlignment(TEXT_ALIGN_CENTER_BOTH);
-    display.drawString(DISPLAY_WIDTH/2, DISPLAY_HEIGHT/2 - 10, str);
-    display.display();
+void oled_print(char str)
+{
+  display.print(str);
+  display.display();
+}
+
+void oled_println(String str)
+{
+  display.println(str);
+  display.display();
 }
