@@ -32,5 +32,5 @@ void setup()
 void loop()
 {
     // TODO: Write code here to do a HTTP get to the URL using HTTPClient
-    delay(2000)
+    delay(2000);
 }
