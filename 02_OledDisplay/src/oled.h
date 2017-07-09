@@ -6,5 +6,5 @@
 #define OLED_RESET D1
 
 void oled_setup();
-void oled_print(char);
+void oled_clear();
 void oled_println(String str);

@@ -13,9 +13,6 @@ void oled_setup()
   pinMode(OLED_VCC, OUTPUT);
   digitalWrite(OLED_VCC, HIGH);
 
-  // put your setup code here, to run once:
-  Serial.begin(115200);
-
   // by default, we'll generate the high voltage from the 3.3v line internally! (neat!)
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C); // initialize with the I2C addr 0x3C (for the 64x48)
   display.display();
@@ -29,12 +26,12 @@ void oled_setup()
   display.setCursor(0, 0);
 }
 
-void oled_print(char str)
+void oled_clear()
 {
-  display.print(str);
+  display.clearDisplay();
+  display.setCursor(0, 0);
   display.display();
 }
-
 void oled_println(String str)
 {
   display.println(str);
